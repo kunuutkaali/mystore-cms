@@ -3,3 +3,32 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  div.bg-grey-lighter.flex.flex-col.justify-center
+  form.w-64.mx-auto.bg-white.shadow-md.rounded.p-8.mb-4
+    .mb-4
+      label(for='username').block.text-grey-darkest.font-bold.mb-2 Username
+      input(type='text', placeholder='Username').shadow.border.rounded.w-full.p-2.text-xs.text-grey-darker
+    .mb-4
+      label(for='password').block.text-grey-darkest.font-bold.mb-2 Password 
+      input(type='password', placeholder='***********').shadow.border.rounded.w-full.p-2.text-xs.text-grey-darker.mb-3
+      p.text-red-light.text-xs Choose a password
+    .flex.items-center.justify-between
+      button(type='submit').bg-blue.text-xs.text-white.font-bold.py-2.px-4.rounded Sign in
+      a(href='#').inline-block.font-bold.text-xs.text-blue.no-underline Forgot password?
+  p.text-grey.text-xs.text-center ©2018 All rights reserved.
+  hr
+  table
+    thead
+      tr
+        thSong
+        th Artist
+        th Year 
+    tbody 
+      tr
+        td The sliding Mr. Bone(Next Stop, Pottersville)
+        td Malcolm Lockyer
+        td 1961
+      tr
+        td Witchy woman
+        td The Eagles
+        td 1972

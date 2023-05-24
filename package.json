@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "npm run build:css && nodemon ./bin/www",
+    "build:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/styles.css"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,7 +15,10 @@
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.14",
     "dotenv": "^16.0.3",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2"
   }
 }
