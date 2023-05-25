@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET products listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.render('products/products', { title: "My products"})
 });
 
 router.get('/categories/', (req, res, next)=>{
