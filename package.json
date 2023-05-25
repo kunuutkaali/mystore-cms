@@ -2,6 +2,12 @@
   "name": "mystore-cms",
   "version": "0.0.0",
   "private": true,
+  "nodemonConfig": {
+    "ext": "pug, css, js",
+    "events": {
+      "restart": "npm run build:css"
+    }
+  },
   "scripts": {
     "start": "npm run build:css && nodemon ./bin/www",
     "build:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/styles.css"
