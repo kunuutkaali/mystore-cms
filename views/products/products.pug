@@ -1,4 +1,36 @@
 extends ../layout
 
 block content
-  h1 Some content
+  - buttonClass = "inline-block font-bold uppercase px-3 py-1 text-xs rounded-md bg-red-500 hover:bg-red-700 focus:bg-gray-400 text-gray-50";
+  h1(class="text-5xl") Product overview
+  h2 Selector:
+  if locals.data.products && locals.data.products.length > 0
+    table(class="table-auto w-full text-left dark:bg-gray-700 text-gray-300")
+      thead
+        tr(class="dark:bg-gray-900") 
+          th(class="p-2") Name
+          th(class="p-2") Description
+          th(class="p-2") Category
+          th(class="p-2 text-right") Actions
+      tbody(class="[&>*:nth-child(odd)]:bg-gray-500")
+        each product in data.products
+          tr
+            td 
+              - productLink = "products/product?id="+product._id
+              a(href=productLink, title="Link to product", class="font-bold hover:underline")=product.name
+            td(class="text-xs")
+              =product.description
+            td
+              if product.category
+                a(href="#", title="Link to category", class="text-sm hover:underline")=product.category.name
+                if product.category.parentCategory 
+                  span(class="inline-block mx-1") in 
+                  a(href="#", title="Link to category", class="text-sm hover:underline")=product.category.parentCategory.name
+              else
+                p(class="text-sm text-gray-600") No categories added
+            td(class="text-right p-1")
+              
+              a(href="#", class=buttonClass) Delete
+          p 
+  else
+    h3 No products added yet

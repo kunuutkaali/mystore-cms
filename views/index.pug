@@ -1,23 +1,6 @@
 extends layout
 
 block content
-  h1= title
+  h1(class="text-orange-600 text-center")= title
   p Welcome to #{title}
-  div(class="flex")
-    div(class="overflow-x-auto sm:-m6 lg:px-8")
-      div(class="overflow-hidden")
-        table(class="table-fixed min-w-full text-left text-sm font-light")
-          thead(class="border-b font-medium dark:border-neutral-500")
-            tr.flex
-              th(scope="col", class="px-6 py-4") Song
-              th(scope="col", class="px-6 py-4") Artist
-              th(scope="col", class="px-6 py-4") Year 
-          tbody 
-            tr
-              td The sliding Mr. Bone(Next Stop, Pottersville)
-              td Malcolm Lockyer
-              td 1961
-            tr
-              td Witchy woman
-              td The Eagles
-              td 1972 
+  p(class="text-lg") This is just a test, there will be a dashboard

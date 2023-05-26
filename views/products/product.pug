@@ -1,0 +1,24 @@
+extends ../layout 
+block content 
+  h1 Display product
+  if(locals.data.product)
+    h2=locals.data.product.name
+    form(action="/products/product", method="POST", class="text-gray-900 bg-slate-200") 
+      div()
+        label(for="name" class="w-1/4") Name: *
+        input(type="text", value=locals.data.product.name, class="font-bold w-3/4")
+      div()
+        label(for="description") Description:
+        input(type="text", value=value=locals.data.product.description, class="font-bold")
+      div()
+        label(for="eannr") Ean no:
+        input(type="text", value=locals.data.product.eannr, class="font-bold")
+      if(locals.data.categories)
+        select
+          for category in locals.data.categories
+            if(locals.data.product.category == category._id)
+              option(value=category_id, selected)=category.name
+            option(value=category._id)=category.name
+      button(type="submit", class="p-2 rounded-md bg-green-300") Update
+  else
+    p No products with that id
